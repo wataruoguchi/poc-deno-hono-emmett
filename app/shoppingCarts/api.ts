@@ -1,7 +1,7 @@
 import { DeciderCommandHandler } from "@event-driven-io/emmett";
 import { getPostgreSQLEventStore } from "@event-driven-io/emmett-postgresql";
 import { type Context, Hono } from "hono";
-import { decider } from "./decider.ts";
+import { decider } from "./service.ts";
 
 const connectionString = Deno.env.get("POSTGRESQL_CONNECTION_STRING") ??
   "postgresql://localhost:5432/postgres";
