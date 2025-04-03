@@ -5,7 +5,7 @@ This project is a PoC for experiencing Emmett and PostgreSQL. It's developed und
 
 ## TODO
 
-- [ ] Write tests.
+- [x] Write tests.
 - [ ] Integrate it with the PostgreSQL.
 
 ```sh
