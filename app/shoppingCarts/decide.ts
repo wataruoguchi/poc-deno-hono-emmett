@@ -4,20 +4,36 @@ import type { ShoppingCartCommand } from "./command.ts";
 import type { ShoppingCartEvent } from "./event.ts";
 import type { ShoppingCart } from "./state.ts";
 
-export function decide(command: ShoppingCartCommand, state: ShoppingCart): ShoppingCartEvent {
-  const { type } = command;
-  switch (type) {
-    case "AddProductItemToShoppingCart":
-      return addProductItem(command, state);
-    case "RemoveProductItemFromShoppingCart":
-      return removeProductItem(command, state);
-    case "ConfirmShoppingCart":
-      return confirmShoppingCart(command, state);
-    case "CancelShoppingCart":
-      return cancelShoppingCart(command, state);
-    default: {
-      const _notExistingCommandType: never = type;
-      throw new EmmettError(`Unknown command type`);
+export type CommandHandlers = {
+  addProductItem: typeof addProductItem;
+  removeProductItem: typeof removeProductItem;
+  confirmShoppingCart: typeof confirmShoppingCart;
+  cancelShoppingCart: typeof cancelShoppingCart;
+};
+
+export const createDecide = (handlers: CommandHandlers = {
+  addProductItem,
+  removeProductItem,
+  confirmShoppingCart,
+  cancelShoppingCart,
+}) => {
+  return (command: ShoppingCartCommand, state: ShoppingCart): ShoppingCartEvent => {
+    const { type } = command;
+    switch (type) {
+      case "AddProductItemToShoppingCart":
+        return handlers.addProductItem(command, state);
+      case "RemoveProductItemFromShoppingCart":
+        return handlers.removeProductItem(command, state);
+      case "ConfirmShoppingCart":
+        return handlers.confirmShoppingCart(command, state);
+      case "CancelShoppingCart":
+        return handlers.cancelShoppingCart(command, state);
+      default: {
+        const _notExistingCommandType: never = type;
+        throw new EmmettError(`Unknown command type`);
+      }
     }
-  }
-}
+  };
+};
+
+export const decide = createDecide();

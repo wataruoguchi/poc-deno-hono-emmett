@@ -2,3 +2,5 @@
 .DS_Store
 .env
 .env.*.local
+cov_profile
+coverage

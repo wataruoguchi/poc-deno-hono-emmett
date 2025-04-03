@@ -1,13 +1,13 @@
-type EmptyShoppingCart = {
+export type EmptyShoppingCart = {
   status: "empty";
 };
 
-type OpenedShoppingCart = {
+export type OpenedShoppingCart = {
   status: "opened";
   productItems: ProductItemMap;
 };
 
-type ClosedShoppingCart = {
+export type ClosedShoppingCart = {
   status: "closed";
 };
 
