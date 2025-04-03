@@ -52,7 +52,7 @@ describe("command-handlers.ts", () => {
     });
   });
 
-  describe.skip("removeProductItem", () => {
+  describe("removeProductItem", () => {
     const productId = Math.random().toString();
     const command = {
       type: "RemoveProductItemFromShoppingCart",
