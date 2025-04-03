@@ -11,12 +11,12 @@ export type CommandHandlers = {
   cancelShoppingCart: typeof cancelShoppingCart;
 };
 
-export const createDecide = (handlers: CommandHandlers = {
+export function createDecide(handlers: CommandHandlers = {
   addProductItem,
   removeProductItem,
   confirmShoppingCart,
   cancelShoppingCart,
-}) => {
+}) {
   return (command: ShoppingCartCommand, state: ShoppingCart): ShoppingCartEvent => {
     const { type } = command;
     switch (type) {
@@ -34,6 +34,6 @@ export const createDecide = (handlers: CommandHandlers = {
       }
     }
   };
-};
+}
 
 export const decide = createDecide();
