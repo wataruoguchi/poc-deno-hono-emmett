@@ -1,7 +1,7 @@
 import { EmmettError } from "@event-driven-io/emmett";
-import { assertThrows } from "jsr:@std/assert";
-import { describe, it } from "jsr:@std/testing/bdd";
-import { assertSpyCalls, spy } from "jsr:@std/testing/mock";
+import { assertThrows } from "@std/assert";
+import { describe, it } from "@std/testing/bdd";
+import { assertSpyCalls, spy } from "@std/testing/mock";
 import type {
   AddProductItemToShoppingCart,
   CancelShoppingCart,

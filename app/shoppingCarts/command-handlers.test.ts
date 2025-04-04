@@ -1,7 +1,7 @@
 import { IllegalStateError } from "@event-driven-io/emmett";
-import { assertThrows } from "jsr:@std/assert/throws";
-import { expect } from "jsr:@std/expect";
-import { beforeEach, describe, it } from "jsr:@std/testing/bdd";
+import { assertThrows } from "@std/assert/throws";
+import { expect } from "@std/expect";
+import { beforeEach, describe, it } from "@std/testing/bdd";
 import { addProductItem, cancelShoppingCart, confirmShoppingCart, removeProductItem } from "./command-handlers.ts";
 import {
   AddProductItemToShoppingCart,

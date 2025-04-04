@@ -1,5 +1,5 @@
 import { DeciderCommandHandler } from "@event-driven-io/emmett";
-import { getPostgreSQLEventStore, PostgreSQLEventStoreConsumer } from "@event-driven-io/emmett-postgresql";
+import { getPostgreSQLEventStore } from "@event-driven-io/emmett-postgresql";
 import { type Context, Hono } from "hono";
 import { decider } from "./service.ts";
 
@@ -23,7 +23,7 @@ export function shoppingCartsApi(app: Hono) {
     const { productId, quantity } = await c.req.json();
     const shoppingCartId = clientId;
     try {
-      const result = await handle<PostgreSQLEventStoreConsumer>(eventStore, shoppingCartId, {
+      const result = await handle(eventStore, shoppingCartId, {
         type: "AddProductItemToShoppingCart",
         data: {
           shoppingCartId,

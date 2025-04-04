@@ -5,9 +5,12 @@
     "jsr:@std/assert@*": "1.0.12",
     "jsr:@std/assert@^1.0.12": "1.0.12",
     "jsr:@std/cli@^1.0.12": "1.0.15",
+    "jsr:@std/data-structures@^1.0.6": "1.0.6",
     "jsr:@std/encoding@^1.0.7": "1.0.8",
     "jsr:@std/expect@*": "1.0.14",
+    "jsr:@std/expect@^1.0.14": "1.0.14",
     "jsr:@std/fmt@^1.0.5": "1.0.6",
+    "jsr:@std/fs@^1.0.15": "1.0.15",
     "jsr:@std/html@^1.0.3": "1.0.3",
     "jsr:@std/http@*": "1.0.13",
     "jsr:@std/internal@^1.0.6": "1.0.6",
@@ -16,6 +19,7 @@
     "jsr:@std/path@^1.0.8": "1.0.8",
     "jsr:@std/streams@^1.0.9": "1.0.9",
     "jsr:@std/testing@*": "1.0.10",
+    "jsr:@std/testing@^1.0.10": "1.0.10",
     "npm:@event-driven-io/emmett-postgresql@0.36": "0.36.0_@event-driven-io+emmett@0.36.0__@types+async-retry@1.4.9__@types+uuid@10.0.0__async-retry@1.3.3__commander@12.1.0__ts-node@10.9.2___@types+node@22.5.4___typescript@5.8.2__uuid@10.0.0__web-streams-polyfill@4.1.0_@event-driven-io+pongo@0.16.4__@event-driven-io+dumbo@0.12.1___@types+pg@8.11.11___@types+uuid@10.0.0___pg@8.14.1___pg-connection-string@2.7.0___uuid@10.0.0__@types+mongodb@4.0.7__@types+pg@8.11.11__@types+uuid@10.0.0__ansis@3.17.0__cli-table3@0.6.5__commander@12.1.0__pg@8.14.1__pg-connection-string@2.7.0__uuid@10.0.0",
     "npm:@event-driven-io/emmett@0.36": "0.36.0_@types+async-retry@1.4.9_@types+uuid@10.0.0_async-retry@1.3.3_commander@12.1.0_ts-node@10.9.2__@types+node@22.5.4__typescript@5.8.2_uuid@10.0.0_web-streams-polyfill@4.1.0",
     "npm:@types/node@*": "22.5.4"
@@ -33,6 +37,9 @@
     "@std/cli@1.0.15": {
       "integrity": "e79ba3272ec710ca44d8342a7688e6288b0b88802703f3264184b52893d5e93f"
     },
+    "@std/data-structures@1.0.6": {
+      "integrity": "76a7fd8080c66604c0496220a791860492ab21a04a63a969c0b9a0609bbbb760"
+    },
     "@std/encoding@1.0.8": {
       "integrity": "a6c8f3f933ab1bed66244f435d1dc0fd23a888e07195532122ddc3d5f8f0e6b4"
     },
@@ -45,6 +52,12 @@
     },
     "@std/fmt@1.0.6": {
       "integrity": "a2c56a69a2369876ddb3ad6a500bb6501b5bad47bb3ea16bfb0c18974d2661fc"
+    },
+    "@std/fs@1.0.15": {
+      "integrity": "c083fb479889d6440d768e498195c3fc499d426fbf9a6592f98f53884d1d3f41",
+      "dependencies": [
+        "jsr:@std/path"
+      ]
     },
     "@std/html@1.0.3": {
       "integrity": "7a0ac35e050431fb49d44e61c8b8aac1ebd55937e0dc9ec6409aa4bab39a7988"
@@ -81,7 +94,10 @@
       "integrity": "8997bd0b0df020b81bf5eae103c66622918adeff7e45e96291c92a29dbf82cc1",
       "dependencies": [
         "jsr:@std/assert@^1.0.12",
-        "jsr:@std/internal"
+        "jsr:@std/data-structures",
+        "jsr:@std/fs",
+        "jsr:@std/internal",
+        "jsr:@std/path"
       ]
     }
   },
@@ -505,6 +521,9 @@
   "workspace": {
     "dependencies": [
       "jsr:@hono/hono@^4.7.5",
+      "jsr:@std/assert@^1.0.12",
+      "jsr:@std/expect@^1.0.14",
+      "jsr:@std/testing@^1.0.10",
       "npm:@event-driven-io/emmett-postgresql@0.36",
       "npm:@event-driven-io/emmett@0.36"
     ]
